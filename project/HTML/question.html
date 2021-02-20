@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../JS/cookiesLibrary.js"></script>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+        #prev{
+            display: none;
+        }
+
+       
+        .container
+        {
+            padding: 5px;
+            background-color: darkgrey;
+            height: 700px;
+        }
+        .fortimer{
+            width: 60%;
+            height: 20px;
+            background-color: whitesmoke;
+            /* opacity: 0.6; */
+            position: relative;
+          
+        }
+        .timer{
+            position: absolute;
+            width: 100%;
+            height:100%;
+            left: -100%;
+            top: 0;
+            background-color: crimson;
+            opacity: 0.6;
+            animation: time 60s forwards;
+        }
+
+        #forQ{
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            background-color: gold;
+            height: 70%;
+            padding: 50px;
+            margin: 20px;
+            font-size: 18px;
+            color: indigo;
+            margin-left: 300px;
+        }
+
+        #MarkDiv{
+            display: inline-block;
+            width: 10%;
+            background-color: aqua;
+            height: 70%;
+            float: right;
+            opacity: 0.4;
+            padding: 50px;
+            margin: 20px;
+        }
+        .btn{background-color: blue;border-radius: 9px;padding: 10px;font-size: 20px; color:cornsilk}
+        .mark{
+            background-color: darkseagreen;
+        }
+        .forradio{
+            float: right;
+        }
+        form{
+            width: 30%;
+        }
+@keyframes time {
+    from {left: -100%;}
+  to {left: 0%;}
+    
+}
+       
+#submit{
+    position: absolute;
+   top: 100%;
+   left: 0;
+    width: 100%;
+    margin-right: 400px;
+}
+
+#MarkDiv{
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            
+            }
+            .MQ
+            {
+                font-size: 20px;
+                background-color: orange;
+                color: darkblue;
+                border-radius: 8px;
+            }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="fortimer">
+        your Time ....
+        <div class="timer"></div>
+    </div>
+
+    <div id="forQ">
+  
+        <div id="Question">
+        </div>
+    
+        <form name="answers">
+            <label id="l1"></label>
+            <input id="s1" class="forradio" type="radio" name="answer" value="0" >
+            <br>
+            <label id="l2"></label>
+            <input id="s2" class="forradio" type="radio" name="answer" value="1">
+            <br>
+            <label id="l3"></label>
+            <input id="s3" class="forradio" type="radio" name="answer" value="2">
+            <br>
+            <label id="l4"></label>
+            <input id="s4"  class="forradio"  type="radio" name="answer" value="3">
+        </form>
+    
+        <button id="prev" class="control btn" onclick="goPrev()">Prev</button>
+        <button id="next" class="control btn" onclick="goNext()">next</button>
+        <button class="control btn mark" onclick="mark()">Mark</button>
+       
+        <button id="submit" class="btn" onclick="submit()">submit</button>
+    </div>
+    
+    <div id="MarkDiv">
+        <!-- <button>Button</button> -->
+        
+    </div>
+
+</div>
+
+
+<script src="../Js/Questions.js"></script>
+</body>
+
+</html>

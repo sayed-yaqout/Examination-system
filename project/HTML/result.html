@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/jquery-3.5.1.js"></script>
+    <script src="../JS/cookiesLibrary.js"></script>
+    <style>
+        #resDiv{
+            color: green;
+            margin: auto;
+            width: 80%;
+            background-color: grey;
+            height: 400px;
+            font-size: 50px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div id="resDiv">
+
+    </div>
+
+    <script>
+        var firstName =getCookies("firstName");
+        var lastName =getCookies("lastName");
+        var result =getCookies("result");
+
+        if(result<5){
+            $("#resDiv").text("unfortunately  "+firstName+" "+lastName+",you have failed, better luck next time, your score is "+result+"/10");
+        }
+        else{
+            $("#resDiv").text("congratulations  "+firstName+" "+lastName+ ",you have passed the exam, your score is "+result+"/10");
+        }
+        
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: aqua;
+            width: 100%;
+            height: 100%;
+        }
+        #firstnameSpan,#lastnameSpan,#emailSpan,#firstPassword,#reEnterPassword{
+            display: none;
+            width: 200px;
+            height: 20px;
+            font-size: 15px;
+            color: red;
+        }
+
+        #fullContainer{
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .form{
+            margin: 5px; 
+            width: 250px;
+        }
+
+        .inputs{
+            width: 200px;
+            padding-left: 10px;
+            border: solid burlywood;
+            border-radius: 5px;
+            height: 25px;
+            margin-top: 10px;
+            margin-bottom: 7px;
+            padding-top: 10px;
+            font-size: 15px;
+
+        }
+
+        .label{
+            width: 200px;
+            font-size: 20px;
+        }
+
+        #submit{
+            background-color: blue;
+            border-radius: 9px;
+            padding: 10px;
+            font-size: 20px;
+            margin-left: 50px;
+            color: papayawhip;
+
+        }
+    </style>
+
+    <script src="../JS/jquery-3.5.1.js"></script>
+    <script src="../JS/cookiesLibrary.js"></script>
+ 
+    
+
+
+</head>
+<body>
+
+    <div id="fullContainer">
+    
+        <div class="form">
+            <label class="label" for="firstName">first name</label>
+            <br>
+        
+            <input class="inputs" id="firstName" type="text" placeholder="Enter First Name" name="firstName">
+            <br>
+            <span class="spanError"  id="firstnameSpan">Please Provide a Valid Name</span>    
+        </div>
+    
+        <div class="form">
+            <label class="label" for="lastName">last name</label>
+            <br>
+        
+            <input class="inputs" id="lastName" type="text" placeholder="Enter Last Name" name="lastName">
+            <br>
+            <span class="spanError"  id="lastnameSpan">Please Provide a Valid Name</span>    
+        </div>
+    
+        <div class="form">
+            <label class="label" for="Email">E-mail</label>
+            <br>
+        
+            <input class="inputs" id="Email" type="text" placeholder="Enter E-mail" name="Email">
+            <br>
+            <span class="spanError"  id="emailSpan">Please Provide a Valid Email</span>    
+        </div>
+    
+        <div class="form">
+            <label class="label" for="password">password</label>
+            <br>
+        
+            <input class="inputs" id="password" type="text" placeholder="Enter Password" name="password">
+            <br>
+            <span class="spanError" id="firstPassword">password at least 8 character</span>    
+        </div>
+
+        <div class="form">
+            <label class="label" for="passwordAgain">re enter password</label>
+            <br>
+        
+            <input class="inputs" id="passwordAgain" type="text" placeholder="Enter Password again" name="passwordAgain">
+            <br>
+            <span class="spanError" id="reEnterPassword">password at least 8 character and must match</span>    
+        </div>
+
+        <div class="form">
+            <button id="submit" >register</button>
+        </div> 
+        
+        
+    </div>    
+        
+      
+        <script>
+
+            $("#submit").click(function(){
+                var firstName =$("#firstName").val();
+                var lastName =$("#lastName").val();
+                var email =$("#Email").val();
+                var password =$("#password").val();
+                var rePassword =$("#passwordAgain").val();
+
+                var isValid =true;
+
+                if(!checkName(firstName)){
+                    $("#firstnameSpan").css("display","inline");
+                    isValid =false;
+                }
+                if(!checkName(lastName)){
+                    $("#lastnameSpan").css("display","inline");
+                    isValid =false;
+                }
+                if(!isValidEmail(email)){
+                    $("#emailSpan").css("display","inline");
+                    isValid =false;
+                }
+                if(!isValidPassword(password,rePassword)){
+                    $("#firstPassword").css("display","inline");
+                    $("#reEnterPassword").css("display","inline");
+                    isValid =false;
+                }
+                if(isValid){
+                    setCookies("firstName",firstName,200);
+                    setCookies("lastName",lastName,200);
+                    setCookies("email",email,200);
+                    setCookies("password",password,200);
+                    location.replace("SignIn.html");
+                }
+
+
+                
+            });
+
+
+
+            $("#firstName").mouseenter(function(){
+                $("#firstnameSpan").css("display","none");
+            })
+
+            $("#lastName").mouseenter(function(){
+                $("#lastnameSpan").css("display","none");
+            })
+
+            $("#Email").mouseenter(function(){
+                $("#emailSpan").css("display","none");
+            })
+
+            $("#password").mouseenter(function(){
+                $("#firstPassword").css("display","none");
+            })
+
+            $("#passwordAgain").mouseenter(function(){
+                $("#reEnterPassword").css("display","none");
+            })
+        </script>
+        <script src="../Js/Questions.js"></script>
+        <script src="../JS/register.js"></script>
+        
+</body>
+</html>

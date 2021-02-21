@@ -139,7 +139,8 @@ for (var i = 0; i < RadioGroubForm.length; i++) {
 function submit(){
     var sum=0;
     for(var i=0;i<Result.length;i++){
-        sum +=parseInt(Result[i]);
+                if(!isNaN(parseInt(Result[i])))
+                sum +=parseInt(Result[i]);
     }
     setCookies("result",sum,300);
     location.replace("result.html")
